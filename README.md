@@ -1,6 +1,8 @@
 # color-counter
 Get most common colors (in descending order) from a list of URLs.
 
+[![Build Status](https://travis-ci.com/uskudnik/colorcounter.svg?branch=master)](https://travis-ci.com/uskudnik/colorcounter)
+
 Setup
 =====
 
