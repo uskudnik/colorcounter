@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+INPUT_FILE=$(realpath $1)
+OUTPUT_FILE="$INPUT_FILE-colors.txt"
+
+OLD_DIR=$(pwd)
+pushd $(mktemp -d) > /dev/null
+docker-compose -f $OLD_DIR/docker-compose.yml run \
+  -v $INPUT_FILE:/tmp/__input-file.txt \
+  -v $(pwd):/tmp/ \
+  -u $(id -u) \
+  color-counter "${@:2}"
+cp __output-file.txt $OUTPUT_FILE
+popd > /dev/null

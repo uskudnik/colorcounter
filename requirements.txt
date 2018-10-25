@@ -1,0 +1,12 @@
+flake8
+ipython
+pylint
+pytest
+
+numpy
+aioprocessing
+aiofiles
+pillow
+numba
+tqdm
+requests
