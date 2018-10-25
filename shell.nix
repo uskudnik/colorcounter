@@ -87,11 +87,17 @@ pkgs.stdenv.mkDerivation rec {
       BASE_PATH=$PWD
   
       # Create virtualenv if it doesn't exist already
-      #if [ ! -d $PWD/venv ]; then
-      #  python3.6 -m venv venv
-      #fi
+      if [ ! -d $PWD/venv ]; then
+        python3.6 -m venv venv
+      fi
 
-      #export PATH=$PWD/venv/bin:$PATH
+      export PATH=$PWD/venv/bin:$PATH
+      export PYTHONPATH=$PWD:$PYTHONPATH
+      source venv/bin/activate
+
+      export PYTHONDONTWRITEBYTECODE=1
+
+      pip install -r requirements.txt
 
       '';
 }
